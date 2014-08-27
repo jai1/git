@@ -1,0 +1,17 @@
+<suite name=”Suite1? verbose=”1? parallel=”tests”>
+
+<test name=”Generic test” >
+<parameter name=”browser” value=”FF”></parameter>
+
+<classes>
+<class name=”com.framework.Test” />
+</classes>
+</test>
+
+<test name=”Generic test_ie” >
+<parameter name=”browser” value=”IE”></parameter>
+<classes>
+<class name=”com.testng.Test” />
+</classes>
+</test>
+<!–suite>–>

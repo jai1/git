@@ -1,0 +1,66 @@
+import org.testng.annotations.BeforeMethod;
+import java.net.MalformedURLException;
+import java.net.URL;
+ 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+ 
+public class TestBase {
+ 
+    protected ThreadLocal<RemoteWebDriver> threadDriver = null;
+ 
+   
+	@BeforeMethod
+    @Parameters("browser")
+    public void setUp(String browser) throws MalformedURLException {
+ 
+    	if(browser.equalsIgnoreCase("Firefox"))
+    	{
+        threadDriver = new ThreadLocal<RemoteWebDriver>();
+        DesiredCapabilities dc = new DesiredCapabilities();
+        FirefoxProfile fp = new FirefoxProfile();
+        dc.setCapability(FirefoxDriver.PROFILE, fp);
+        dc.setBrowserName(DesiredCapabilities.firefox().getBrowserName());
+        threadDriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc));
+    	}
+    	
+    	if(browser.equalsIgnoreCase("Chrome"))
+    	{
+    		System.setProperty("webdriver.chrome.driver", "D:\\library\\chromedriver.exe");
+    		DesiredCapabilities dc = DesiredCapabilities.chrome();                        
+    		DesiredCapabilities cap = DesiredCapabilities.chrome();
+            cap.setBrowserName("chrome");
+    		System.out.println("Chrome will be used as a browser");	
+    		driver  = new RemoteWebDriver(new URL("http://x.x.x.x:5566/wd/hub"), cap);
+    	}
+
+
+    	if(browser.equalsIgnoreCase("IE will be used as a browser"))
+    	{
+    	 	System.setProperty("webdriver.ie.driver","D:\\library\\\\IEDriverServer.exe");
+    	 	WebDriver driver = new InternetExplorerDriver();
+    	 	System.out.println("IE will be used as a browser");
+    	}
+
+    	
+    	threadDriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc));
+    }
+ 
+    public WebDriver getDriver() {
+        return threadDriver.get();
+    }
+ 
+    @AfterMethod
+    public void closeBrowser() {
+        getDriver().quit();
+ 
+    }
+}

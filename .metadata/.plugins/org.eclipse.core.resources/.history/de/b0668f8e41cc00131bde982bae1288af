@@ -1,0 +1,25 @@
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.BeforeMethod;
+
+
+public class browser_class {
+	
+	public static void main(String[] args){
+
+		//@Test
+		WebDriver driver = new FirefoxDriver();
+		driver.get("http://google.com");
+		System.out.println(driver.getTitle());
+		driver.close();
+
+		
+	}
+	
+
+}

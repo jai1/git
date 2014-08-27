@@ -1,0 +1,82 @@
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+ 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+ 
+public class TestBase {
+ 
+    //protected ThreadLocal<RemoteWebDriver> threadDriver = null;
+	public WebDriver driver;
+    @Parameters({"browser"})
+    @BeforeMethod
+    public void setUp(String browser) throws MalformedURLException {
+    	DesiredCapabilities capability=null;
+    	
+        //threadDriver = new ThreadLocal<RemoteWebDriver>();
+        DesiredCapabilities dc = new DesiredCapabilities();
+        
+        if(browser.equalsIgnoreCase("firefox")){
+			System.out.println("firefox");
+			FirefoxProfile fp = new FirefoxProfile();
+	        dc.setCapability(FirefoxDriver.PROFILE, fp);
+	        dc.setBrowserName(DesiredCapabilities.firefox().getBrowserName());
+			//capability.setVersion("");
+		}
+        
+        if(browser.equalsIgnoreCase("iexplore")){
+    		
+			capability= DesiredCapabilities.internetExplorer();
+			System.setProperty("webdriver.ie.driver", "D:\\library\\IEDriverServer.exe");
+			capability.setBrowserName("iexplore");
+			capability.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+			capability.setPlatform(org.openqa.selenium.Platform.WINDOWS);
+			capability.setVersion("10");
+					
+			
+		}
+        
+      
+		if(browser.equalsIgnoreCase("chrome")){
+			System.out.println("Chrome");
+			//System.setProperty("webdriver.chrome.driver", "D:\\library\\chromedriver.exe");
+			System.out.println("Chrome");
+			System.setProperty("webdriver.chrome.driver", "D:\\library\\chromedriver.exe");
+			capability= DesiredCapabilities.chrome();
+			//capability.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+			capability.setBrowserName("chrome"); 
+			capability.setPlatform(org.openqa.selenium.Platform.WINDOWS);
+			
+			//ChromeProfile fp = new FirefoxProfile();
+	    //    dc.setCapability(ChromeDriver.PROFILE, fp);
+	       
+	     //   dc.setBrowserName(DesiredCapabilities.firefox().getBrowserName());
+		}
+        
+        
+        //FirefoxProfile fp = new FirefoxProfile();
+        //dc.setCapability(FirefoxDriver.PROFILE, fp);
+        //dc.setBrowserName(DesiredCapabilities.firefox().getBrowserName());
+		driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
+        threadDriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc));
+    }
+ 
+    public WebDriver getDriver() {
+        return threadDriver.get();
+    }
+ 
+    @AfterMethod
+    public void closeBrowser() {
+        getDriver().quit();
+ 
+    }
+}

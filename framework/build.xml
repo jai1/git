@@ -6,7 +6,7 @@
     <property name="browser" value="C:\Program Files\Mozilla Firefox\firefox.exe"/>
 	
     <target name="setClassPath">
-        <path id="classpath_jars">
+        <path id="classpath_jars"> 
             <pathelement path="${basedir}/" />
             <fileset dir="${lib.dir}" includes="*.jar" />
         </path>

@@ -49,3 +49,28 @@ error,log,,,"Unable to read repository at http:/content.xml.",1409158906315
 activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1409159094851
 executed,command,org.eclipse.equinox.p2.ui.sdk,1.0.200.v20110815-1419,"org.eclipse.equinox.p2.ui.sdk.install",1409159094891
 activated,view,org.eclipse.ui.navigator.resources,3.4.300.v20110928-1505,"org.eclipse.ui.navigator.ProjectExplorer",1409159103537
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1409159112794
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1409159132753
+activated,view,org.eclipse.ui.ide,3.7.0.v20110928-1505,"org.eclipse.ui.views.AllMarkersView",1409159135429
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1409159140077
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1409207351102
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1409207357956
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.v20110928-1505,"org.eclipse.ui.navigator.ProjectExplorer",1409207358411
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1409207364047
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1409207386923
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1409207399470
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1409207400535
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1409207400555
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1409207484721
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1409207487099
+started,bundle,org.eclipse.epp.mpc.core,1.1.1.I20110907-0947,"org.eclipse.epp.mpc.core",1409207490271
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1409207491035
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1409207491188
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1409207491985
+error,log,,,"Unexpected exception: HTTP Server 'Internal Error': http://marketplace.eclipse.org/sites/default/files/styles/medium/public/webissuesquery.png?itok=1yMul6FP",1409207495260
+started,bundle,org.eclipse.equinox.p2.artifact.repository,1.1.101.v20110815-1419,"org.eclipse.equinox.p2.artifact.repository",1409207522882
+started,bundle,org.eclipse.equinox.p2.director,2.1.1.v20111126-0211,"org.eclipse.equinox.p2.director",1409207524891
+started,bundle,org.eclipse.equinox.p2.garbagecollector,1.0.200.v20110815-1419,"org.eclipse.equinox.p2.garbagecollector",1409207524947
+error,log,,,"Unexpected exception: Cannot complete request to http://marketplace.eclipse.org/install/error/report: Connection timed out: connect",1409207612682
+error,log,,,"Unexpected exception: Cannot complete request to http://marketplace.eclipse.org/install/error/report: Connection timed out: connect",1409207717291
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1409207727179
